@@ -385,6 +385,7 @@ a:any-link {
     }
     &__btn {
         @extend %btn;
+        @include flex;
         @include size($width: 218px);
         margin: 0px 75px 57px 82px;
         transition: opacity 500ms;
@@ -732,6 +733,7 @@ a:any-link {
     }
     &__btn {
         @extend %btn;
+        @include flex;
         @include size($width: 186px);
         transition: opacity 500ms;
 

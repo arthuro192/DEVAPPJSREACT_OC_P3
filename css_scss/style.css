@@ -366,6 +366,9 @@ a:any-link {
   }
 }
 .intro__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 218px;
   margin: 0px 75px 57px 82px;
   transition: opacity 500ms;
@@ -741,6 +744,9 @@ a:any-link {
   transform: translateX(-59px);
 }
 .menu__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 186px;
   transition: opacity 500ms;
 }
