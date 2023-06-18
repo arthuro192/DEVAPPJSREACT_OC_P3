@@ -1,6 +1,5 @@
 
 /* MAQUETTE.PDF | LEGEND_COLOR ##################################################################################################################################### */
-
 /* You have to uncomment this section (line 15 to 29), to see all the different colour borders on the HTML page.
 The coloured borders represent all the blocks drawn on the model.
 One colour = one specific layer/depth level & one specific indentation level.
@@ -73,9 +72,26 @@ The result must be identical.
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* VARIABLES ################################################################### */
+/* ANIMATIONS ################################################################## */
 
-/* COLORS ############################ */
+@keyframes anim_stickers {
+    0% {
+        transform: perspective(500px) rotateX(80deg);
+    }
+    100% {
+        transform: perspective(500px) rotateX(0deg);
+    }
+}
+@keyframes anim_stickers_unit {
+    0% {
+        transform: perspective(500px) rotateX(160deg);
+    }
+    100% {
+        transform: perspective(500px) rotateX(0deg);
+    }
+}
+
+/* COLORS ###################################################################### */
 
 $color-01: #9356DC;
 $color-02: #99E2D0;
@@ -85,16 +101,11 @@ $color-locate: #EAEAEA;
 $color-icons: #7E7E7E;
 $color-new: #008766;
 
-/* FONTS ############################# */
+/* FONTS ####################################################################### */
 
 $font-roboto: 'Roboto', sans-serif;
 $font-shrikhand: 'Shrikhand', cursive;
 
-/* FONTS ####################################################################### */
-
-* {
-    font-family: $font-roboto;
-}
 .section-title {
     @extend %section-title;
 }
@@ -103,6 +114,8 @@ $font-shrikhand: 'Shrikhand', cursive;
 }
 .plate-title {
     @include font($size: 18px,$weight: 500);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .card-subtitle {
     @include font($size: 17px,$weight: 300);
@@ -112,9 +125,13 @@ $font-shrikhand: 'Shrikhand', cursive;
 }
 .plate-price {
     @include font($size: 15.04px,$weight: 700);
+    @include absolute($right: 15px);
+    background: white;
 }
 .plate-subtitle {
     @include font($size: 15.04px,$weight: 300);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .txt-num {
     @include font($size: 14.18px,$weight: 500);
@@ -127,6 +144,7 @@ $font-shrikhand: 'Shrikhand', cursive;
 
 * {
     margin: 0px;
+    font-family: $font-roboto;
 }
 body {
     @include flex($direct: column);
@@ -155,6 +173,7 @@ a:any-link {
         @include flex;
         @include absolute($left: 17px);
         @include size($width: 30px, $height: 30px);
+        background: white;
 
         &-arrow {
             @include font($size: 19.5px)
@@ -244,6 +263,11 @@ a:any-link {
         margin: 0px 75px 57px 82px;
         transition: opacity 500ms;
 
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            margin: 0px 624.5px 30px 597.5px;
+        }
+
         &:hover {
             opacity: 0.85;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
@@ -253,10 +277,6 @@ a:any-link {
               transform: translateY(-1px);
             }
 
-        }
-        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
-        @media (min-width: 767.99px) {
-            margin: 0px 624.5px 30px 597.5px;
         }
 
     }
@@ -465,8 +485,12 @@ a:any-link {
         &-title {
             font-family: $font-shrikhand;
             @include font($size: 28px,$weight: 400);
-            @include size($height: 29px);
+            // @include size($height: 29px);
+            @include size($height: 35px);
             margin: 0px 4px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
             // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
             @media (min-width: 767.99px) {
@@ -490,10 +514,11 @@ a:any-link {
     &__stickers {
         @include flex($direct: column, $align: flex-start, $gap: 12px);
         @include size($width: 100%);
+        animation: anim_stickers 1000ms ease-out;
 
         // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
         @media (min-width: 767.99px) {
-            min-width: 300px;
+            min-width: 200px;
         }
 
         &-title {
@@ -503,20 +528,47 @@ a:any-link {
             box-sizing: border-box;
         }
         &-unit {
-            @include flex($just: space-between, $align: flex-end);
-            @include size($width: 100%);
+            @include flex($just: space-between, $align: end);
+            @include size($width: 100%, $height: 69px);
+            position: relative;
             padding: 12px 15px;
             box-sizing: border-box;
             border-radius: 15.0431px;
             box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
             background: white;
+            overflow: hidden;
+            animation: anim_stickers_unit 2000ms ease-out;
 
             &-plate {
                 @include flex($direct: column, $align: flex-start, $gap: 5px);
+                overflow: hidden;
+                white-space: nowrap;
+
+                * {
+                    @include size($width: 100%);
+                }
+
             }
-
+            &-check {
+                @include flex;
+                @include size($width: 59px, $height: 69px);
+                position: relative;
+                left: 74px;
+                margin: -12px 0px;
+                @include font($size: 20px);
+                color: white;
+                background: $color-02;
+            }
+            & > &-check, .plate-price {
+                transition: all 250ms linear;
+            }
+            &:active &-check {
+                transform: translateX(-59px);
+            }
+            &:active .plate-price {
+                transform: translateX(-59px);
+            }
         }
-
     }
     &__btn {
         @extend %btn;
@@ -560,7 +612,6 @@ a:any-link {
         @include font($size: 18px,$weight: 400);
         @include size($width: 137.58px);
     }
-
     &__ul {
         @include flex($direct: column, $align: flex-start, $gap: 7px);
         padding-left: 0px;
@@ -590,6 +641,7 @@ a:any-link {
                     display: inline-block;
                     @include size($width: 168px);
                 }
+
             }
 
         }
@@ -598,6 +650,7 @@ a:any-link {
             @media (min-width: 767.99px) {
                 width: 130px;
            }
+
         } 
         &-mail:any-link {
             display: block;
@@ -609,8 +662,6 @@ a:any-link {
     }
 
 }
-
-
 
 /* RESPONSIVE_DESIGN | MEDIA_QUERIES ################################################################################################################################*/
 
