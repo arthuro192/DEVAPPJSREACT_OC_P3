@@ -11,7 +11,30 @@ The result must be identical.
 .bd_red    = Layer_4 (L4/indentation n°3) + Layer_9 (L9/indentation n°8)
 .bd_green  = Layer_5 (L5/indentation n°4) + Layer_10 (L10/indentation n°9) */
 /* GENERAL ######################################################################################################################################################### */
-/* MIXIN ####################################################################### */
+/* MIXINS ###################################################################### */
+/* EXTENDS ##################################################################### */
+.intro__section-title, .section-title {
+  font-size: 24px;
+  font-weight: 700px;
+}
+
+.function__stick-font01, .font-01 {
+  font-size: 16px;
+  font-weight: 500px;
+}
+
+.menu__button, .intro__button {
+  height: 50px;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(to bottom, #FF79DA -11.44%, #9356DC 123.93%);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* VARIABLES ################################################################### */
+/* COLORS ############################ */
+/* FONTS ############################# */
 /* FONTS ####################################################################### */
 * {
   font-family: "Roboto", sans-serif;
@@ -21,11 +44,6 @@ The result must be identical.
   font-family: "Shrikhand", cursive;
   font-size: 18px;
   font-weight: 400;
-}
-
-.section-title {
-  font-size: 24px;
-  font-weight: 700;
 }
 
 .card-title {
@@ -41,12 +59,6 @@ The result must be identical.
 .card-subtitle {
   font-size: 17px;
   font-weight: 300;
-}
-
-.font-01 {
-  font-size: 16px;
-  font-size: 16px;
-  font-weight: 500;
 }
 
 .plate-price {
@@ -69,19 +81,6 @@ The result must be identical.
   font-weight: 500;
 }
 
-/* COLORS ###################################################################### */
-:root {
-  --color_01: #9356DC;
-  --color_02: #FF79DA;
-  --color_03: #99E2D0;
-  --color_04: #EAEAEA;
-  --color_05: #353535;
-  --color_06: #D2D2D2; /* non utilisé */
-  --color_07: #F7F7F7;
-  --color_08: #7E7E7E;
-  --color_09: #008766;
-}
-
 /* COMMON ###################################################################### */
 * {
   margin: 0px;
@@ -90,6 +89,7 @@ The result must be identical.
 body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -156,23 +156,21 @@ a:any-link {
   align-items: center;
   gap: 17px;
   height: 50px;
-  color: var(--color_05);
-  background: var(--color_04);
+  color: #353535;
+  background: #EAEAEA;
 }
 
 /* INTRO ####################################################################### */
 .intro {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  background: var(--color_07);
+  background: #F7F7F7;
 }
 
 .intro__section-title {
-  font-size: 24px;
-  font-weight: 700;
   height: 68px;
   margin: 39.5px 58px 0px 42px;
 }
@@ -185,19 +183,14 @@ a:any-link {
 
 .intro__button {
   width: 218px;
-  height: 50px;
   margin: 0px 75px 57px 82px;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  background: linear-gradient(to bottom, var(--color_02) -11.44%, var(--color_01) 123.93%);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 /* FUNCTION #################################################################### */
 .function {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: start;
   gap: 26px;
   padding: 48px 20px 68px 20px;
@@ -206,6 +199,7 @@ a:any-link {
 .function__stickers {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 25px;
   width: 100%;
 }
@@ -216,7 +210,7 @@ a:any-link {
   align-items: center;
   position: relative;
   height: 72.38px;
-  background: var(--color_07);
+  background: #F7F7F7;
   border-radius: 20px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
   margin-left: 12.51px;
@@ -231,24 +225,21 @@ a:any-link {
   width: 24px;
   height: 24px;
   color: white;
-  background: var(--color_01);
+  background: #9356DC;
   border-radius: 14px;
 }
 
 .function__icons {
   position: absolute;
   left: 34.5px;
-  color: var(--color_08);
+  color: #7E7E7E;
 }
 
 .function__icons:hover {
-  color: var(--color_01);
+  color: #9356DC;
 }
 
 .function__stick-font01 {
-  font-size: 16px;
-  font-size: 16px;
-  font-weight: 500;
   position: absolute;
   left: 73.49px;
 }
@@ -257,15 +248,17 @@ a:any-link {
 .restaur {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: start;
   gap: 24px;
   padding: 54px 18px 66px 17px;
-  background: var(--color_07);
+  background: #F7F7F7;
 }
 
 .restaur__cards {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 18px;
   width: 100%;
@@ -274,6 +267,7 @@ a:any-link {
 .restaur__card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   position: relative;
   width: 100%;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
@@ -294,8 +288,8 @@ a:any-link {
   right: 12px;
   width: 80px;
   height: 29px;
-  color: var(--color_09);
-  background: var(--color_03);
+  color: #008766;
+  background: #99E2D0;
   border-radius: 2px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
@@ -303,8 +297,8 @@ a:any-link {
 .restaur__content {
   display: flex;
   flex-direction: column;
-  align-items: start;
   justify-content: center;
+  align-items: start;
   gap: 5px;
   position: relative;
   height: 77px;
@@ -333,12 +327,13 @@ a:any-link {
 .menu {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 40px;
   position: relative;
   padding: 32px 13px 40px 13px;
   margin-top: -55px;
-  background: var(--color_07);
+  background: #F7F7F7;
   border-radius: 40px 40px 0px 0px;
   z-index: 2;
 }
@@ -367,6 +362,7 @@ a:any-link {
 .menu__stickers {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: start;
   gap: 12px;
   width: 100%;
@@ -375,9 +371,9 @@ a:any-link {
 .menu__stickers-title {
   font-size: 16px;
   font-weight: 300;
-  height: 27px;
   width: 40px;
-  border-bottom: 3px solid var(--color_03);
+  height: 27px;
+  border-bottom: 3px solid #99E2D0;
   box-sizing: border-box;
 }
 
@@ -396,18 +392,13 @@ a:any-link {
 .menu__plate {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: start;
   gap: 5px;
 }
 
 .menu__button {
   width: 186px;
-  height: 50px;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  background: linear-gradient(to bottom, var(--color_02) -11.44%, var(--color_01) 123.93%);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 /* FOOTER ########################################################################################################################################################## */
@@ -419,16 +410,18 @@ a:any-link {
 .main-footer__div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: start;
   gap: 16px;
   padding: 22px 25px;
   color: white;
-  background: var(--color_05);
+  background: #353535;
 }
 
 .main-footer__ul {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: start;
   gap: 7px;
   padding-left: 0px;
@@ -485,7 +478,7 @@ a:any-link {
 
 "Roboto" font :
 - font-size: 24px + font-weight: 700;
-    > X2 elements style | Existing class NO_to be create = section-title
+    > X2 elements style | Existing class NO_to be create = %section-title
 - font-size: 18px + font-weight: 700;
     > X1 element style | Existing class NO_to be create = card-title
 - font-size: 18px + font-weight: 500;
@@ -495,7 +488,7 @@ a:any-link {
 - font-size: 17px + font-weight: 300;
     > X1 element style | Existing class NO_to be create = card-subtitle
 - font-size: 16px + font-weight: 500;
-    > X4 elements style | Existing class NO_to be create = font-01
+    > X4 elements style | Existing class NO_to be create = %font-01
     > (h2 default is 24px + font-weight: 700)
 - font-size: 16px + font-weight: 400;
     > X? elements style | Existing class NO, no need, because this is the default configuration of the browser.
@@ -520,4 +513,4 @@ you must also import the font style corresponding to the font-weight at 700, oth
 Generally, the default browser font size is 16px, with a font-weight of 400.
 -----------------------------------------------------------
 By default, an h* title is automatically assigned a size in pixels, depending on its title level (h1,h2,h3 etc) and
-an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style.css.map */
+an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style_v2.2.css.map */

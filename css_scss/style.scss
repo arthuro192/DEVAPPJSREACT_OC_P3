@@ -30,74 +30,103 @@ The result must be identical.
 
 /* GENERAL ######################################################################################################################################################### */
 
-/* MIXIN ####################################################################### */
+/* MIXINS ###################################################################### */
 
-@mixin section-title {
-    font-size: 24px;
-    font-weight: 700;
+@mixin flex ($direct: null, $just: center, $align: center, $gap: null) {
+    display: flex;
+    flex-direction: $direct;
+    justify-content: $just;
+    align-items: $align;
+    gap: $gap;
 }
-@mixin font-01 {
-    font-size: 16px;
-    font-size: 16px;
-    font-weight: 500;
+
+@mixin font ($size: null, $weight: null) {
+    font-size: $size;
+    font-weight: $weight;
 }
+
+@mixin absolute ($top: null, $right: null, $bott: null, $left: null) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bott;
+    left: $left;
+}
+
+@mixin size ($width: null, $max: null, $height: null) {
+    width: $width;
+    max-width: $max;
+    height: $height;
+}
+
+/* EXTENDS ##################################################################### */
+
+%section-title {
+    @include font($size: 24px, $weight: 700px);
+}
+%font-01 {
+    @include font($size: 16px, $weight: 500px);
+}
+%button {
+    @include size($height: 50px);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(to bottom, #FF79DA -11.44%, #9356DC 123.93%);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+/* VARIABLES ################################################################### */
+
+/* COLORS ############################ */
+
+$color-01: #9356DC;
+$color-02: #99E2D0;
+$color-03: #353535;
+$color-04: #F7F7F7;
+$color-locate: #EAEAEA;
+$color-icons: #7E7E7E;
+$color-new: #008766;
+
+/* FONTS ############################# */
+
+$font-roboto: 'Roboto', sans-serif;
+$font-shrikhand: 'Shrikhand', cursive;
+
 /* FONTS ####################################################################### */
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: $font-roboto;
 }
 .footer-title {
-    font-family: 'Shrikhand', cursive;
-    font-size: 18px;
-    font-weight: 400;
+    font-family: $font-shrikhand;
+    @include font($size: 18px,$weight: 400);
 }
 .section-title {
-    @include section-title;
+    @extend %section-title;
 }
 .card-title {
-    font-size: 18px;
-    font-weight: 700;
+    @include font($size: 18px,$weight: 700);
 }
 .plate-title {
-    font-size: 18px;
-    font-weight: 500;
+    @include font($size: 18px,$weight: 500);
 }
 .card-subtitle {
-    font-size: 17px;
-    font-weight: 300;
+    @include font($size: 17px,$weight: 300);
 }
 .font-01 {
-    @include font-01;
+    @extend %font-01;
 }
 .plate-price {
-    font-size: 15.04px;
-    font-weight: 700;
+    @include font($size: 15.04px,$weight: 700);
 }
 .plate-subtitle {
-    font-size: 15.04px;
-    font-weight: 300;
+    @include font($size: 15.04px,$weight: 300);
 }
 .txt-num {
-    font-size: 14.18px;
-    font-weight: 500;
+    @include font($size: 14.18px,$weight: 500);
 }
 .txt-new {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-/* COLORS ###################################################################### */
-
-:root {
-    --color_01: #9356DC;
-    --color_02: #FF79DA;
-    --color_03: #99E2D0;
-    --color_04: #EAEAEA;
-    --color_05: #353535;
-    --color_06: #D2D2D2; /* non utilisé */
-    --color_07: #F7F7F7;
-    --color_08: #7E7E7E;
-    --color_09: #008766;
+    @include font($size: 14px,$weight: 500);
 }
 
 /* COMMON ###################################################################### */
@@ -106,13 +135,10 @@ The result must be identical.
     margin: 0px;
 }
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex($direct: column);
 }
 main {
-    width: 100%;
-    max-width: 767.98px;
+    @include size($width: 100%, $max: 767.98px);
 }
 img {
     object-fit: cover;
@@ -126,31 +152,22 @@ a:any-link {
 /* HEADER ########################################################################################################################################################## */
 
 .main-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     position: relative;
-    width: 100%;
-    max-width: 767.98px;
-    height: 63px;
+    @include size($width: 100%, $max: 767.98px, $height: 63px);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 .main-header__div-arrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 17px;
-    width: 30px;
-    height: 30px;
+    @include flex;
+    @include absolute($left: 17px);
+    @include size($width: 30px, $height: 30px);
 }
 .main-header__arrow {
-    font-size: 19.5px;
+    @include font($size: 19.5px)
 }
 .main-header__title {
-    font-family: 'Shrikhand', cursive;
-    font-size: 30px;
-    font-weight: 400;
+    font-family: $font-shrikhand;
+    @include font($size: 30px,$weight: 400);
     margin: 14px 0px 5px 0px;
 }
 
@@ -159,221 +176,164 @@ a:any-link {
 /* LOCATION #################################################################### */
 
 .location {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 17px;
-    height: 50px;
-    color: var(--color_05);
-    background: var(--color_04);
+    @include flex ($gap: 17px);
+    @include size($height: 50px);
+    color: $color-03;
+    background: $color-locate;
 }
 
 /* INTRO ####################################################################### */
 
 .intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include flex($direct: column);
     text-align: center;
-    background: var(--color_07);
+    background: $color-04;
 }
 .intro__section-title {
-    @include section-title;
-    height: 68px;
+    @extend %section-title;
+    @include size($height: 68px);
     margin: 39.5px 58px 0px 42px;
 }
 .intro__txt-intro {
-    font-size: 18px;
-    font-weight: 300;
+    @include font($size: 18px,$weight: 300);
     margin: 0px 26px 27px 34px;
 }
 .intro__button {
-    width: 218px;
-    height: 50px;
+    @extend %button;
+    @include size($width: 218px);
     margin: 0px 75px 57px 82px;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    background: linear-gradient(to bottom, var(--color_02) -11.44%, var(--color_01) 123.93%);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 /* FUNCTION #################################################################### */
 
 .function {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 26px;
+    @include flex($direct: column, $align: start, $gap: 26px);
     padding: 48px 20px 68px 20px;
 }
 .function__stickers {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    width: 100%;
+    @include flex($direct: column, $align: null, $gap: 25px);
+    @include size($width: 100%);
 }
 .function__sticker {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     position: relative;
-    height: 72.38px;
-    background: var(--color_07);
+    @include size($height: 72.38px);
+    background: $color-04;
     border-radius: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
     margin-left: 12.51px;
 }
 .function__round-num {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: -12.51px;
-    width: 24px;
-    height: 24px;
+    @include flex;
+    @include absolute($left: -12.51px);
+    @include size($width: 24px, $height: 24px);
     color: white;
-    background: var(--color_01);
+    background: $color-01;
     border-radius: 14px;
 }
 .function__icons {
-    position: absolute;
-    left: 34.5px;
-    color: var(--color_08);
+    @include absolute($left: 34.5px);
+    color: $color-icons;
 }
 .function__icons:hover {
-    color: var(--color_01);
+    color: $color-01;
 }
 .function__stick-font01 {
-    @include font-01;
-    position: absolute;
-    left: 73.49px;
+    @extend %font-01;
+    @include absolute($left: 73.49px);
 }
 
 /* RESTAURANTS ################################################################# */
 
 .restaur {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 24px;
+    @include flex($direct: column, $align: start, $gap: 24px);
     padding: 54px 18px 66px 17px;
-    background: var(--color_07);
+    background: $color-04;
 }
 .restaur__cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    width: 100%;
+    @include flex($direct: column, $gap: 18px);
+    @include size($width: 100%);
 }
 .restaur__card {
-    display: flex;
-    flex-direction: column;
+    @include flex($direct: column, $align: null);
     position: relative;
-    width: 100%;
+    @include size($width: 100%);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     border-radius: 0px 0px 15px 15px;
 }
 .restaur__img {
-    height: 174px;
+    @include size($height: 174px);
     border-radius: 15px 15px 0px 0px;
 }
 .restaur__new {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 13px;
-    right: 12px;
-    width: 80px;
-    height: 29px;
-    color: var(--color_09);
-    background: var(--color_03);
+    @include flex;
+    @include absolute($top: 13px, $right: 12px);
+    @include size($width: 80px, $height: 29px);
+    color: $color-new;
+    background: $color-02;
     border-radius: 2px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 .restaur__content {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    gap: 5px;
+    @include flex($direct: column, $align: start, $gap: 5px);
     position: relative;
-    height: 77px;
+    @include size($height: 77px);
     padding-left: 13px;
 }
 .restaur__hearth {
-    position: absolute;
-    top: 23px;
-    right: 25px;
-    font-size: 22px;
+    @include absolute($top: 23px, $right: 25px);
+    @include font($size: 22px)
 }
 
 /* MENU-IMG ################################################################# */
 
 .menu-img {
-    height: 275px;
+    @include size($height: 275px);
 }
 .menu-img__img {
-    width: 100%;
-    height: 275px;
+    @include size($width: 100%, $height: 275px);
     z-index: 1;
 }
 
 /* MENU ######################################################################## */
 
 .menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
+    @include flex($direct: column, $gap: 40px);
     position: relative;
     padding: 32px 13px 40px 13px;
     margin-top: -55px;
-    background: var(--color_07);
+    background: $color-04;
     border-radius: 40px 40px 0px 0px;
     z-index: 2;
 }
 .menu__div-title {
     position: relative;
-    width: 100%;
+    @include size($width: 100%);
     margin-bottom: 2px;
 }
 .menu__restaur-title {
-    font-family: 'Shrikhand', cursive;
-    font-size: 28px;
-    font-weight: 400;
+    font-family: $font-shrikhand;
+    @include font($size: 28px,$weight: 400);
     margin: 0px 4px;
-    height: 27px;
+    @include size($height: 27px);
 }
 .menu__hearth {
-    position: absolute;
-    top: 8px;
-    right: 24px;
-    font-size: 22px;
+    @include absolute($top: 8px, $right: 24px);
+    @include font($size: 22px)
 }
 .menu__stickers {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 12px;
-    width: 100%;
+    @include flex($direct: column, $align: start, $gap: 12px);
+    @include size($width: 100%);
 }
 .menu__stickers-title {
-    font-size: 16px;
-    font-weight: 300;
-    height: 27px;
-    width: 40px;
-    border-bottom: 3px solid var(--color_03);
+    @include font($size: 16px,$weight: 300);
+    @include size($width: 40px, $height: 27px);
+    border-bottom: 3px solid $color-02;
     box-sizing: border-box;
 }
 .menu__sticker {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    width: 100%;
+    @include flex($just: space-between, $align: end);
+    @include size($width: 100%);
     padding: 13.5px 15px;
     box-sizing: border-box;
     border-radius: 15.0431px;
@@ -381,41 +341,26 @@ a:any-link {
     background: white;
 }
 .menu__plate {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 5px;
+    @include flex($direct: column, $align: start, $gap: 5px);
 }
 .menu__button {
-    width: 186px;
-    height: 50px;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    background: linear-gradient(to bottom, var(--color_02) -11.44%, var(--color_01) 123.93%);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    @extend %button;
+    @include size($width: 186px);
 }
 
 /* FOOTER ########################################################################################################################################################## */
 
 .main-footer {
-    width: 100%;
-    max-width: 767.98px;
+    @include size($width: 100%, $max: 767.98px);
 }
 .main-footer__div {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 16px;
+    @include flex($direct: column, $align: start, $gap: 16px);
     padding: 22px 25px;
     color: white;
-    background: var(--color_05);
+    background: $color-03;
 }
 .main-footer__ul {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 7px;
+    @include flex($direct: column, $align: start, $gap: 7px);
     padding-left: 0px;
     list-style-type: none;
 }
@@ -423,17 +368,15 @@ a:any-link {
     position: relative;
 }
 .main-footer__cutlery {
-    font-size: 13px;
+    @include font($size: 13px);
     vertical-align: middle;
 }
 .main-footer__hand {
-    width: 11.92px;
-    height: 13px;
+    @include size($width: 11.92px, $height: 13px);
     vertical-align: middle;
 }
 .main-footer__li-icons-span { 
-    position: absolute;
-    left: 22px;
+    @include absolute($left: 22px);
     white-space: nowrap;
 }
 .main-footer__mail:any-link {
@@ -477,7 +420,7 @@ a:any-link {
 
 "Roboto" font :
 - font-size: 24px + font-weight: 700;
-    > X2 elements style | Existing class NO_to be create = section-title
+    > X2 elements style | Existing class NO_to be create = %section-title
 - font-size: 18px + font-weight: 700;
     > X1 element style | Existing class NO_to be create = card-title
 - font-size: 18px + font-weight: 500;
@@ -487,7 +430,7 @@ a:any-link {
 - font-size: 17px + font-weight: 300;
     > X1 element style | Existing class NO_to be create = card-subtitle
 - font-size: 16px + font-weight: 500;
-    > X4 elements style | Existing class NO_to be create = font-01
+    > X4 elements style | Existing class NO_to be create = %font-01
     > (h2 default is 24px + font-weight: 700)
 - font-size: 16px + font-weight: 400;
     > X? elements style | Existing class NO, no need, because this is the default configuration of the browser.
