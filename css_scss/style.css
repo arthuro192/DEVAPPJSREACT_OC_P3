@@ -40,12 +40,6 @@ The result must be identical.
   font-family: "Roboto", sans-serif;
 }
 
-.footer-title {
-  font-family: "Shrikhand", cursive;
-  font-size: 18px;
-  font-weight: 400;
-}
-
 .card-title {
   font-size: 18px;
   font-weight: 700;
@@ -95,7 +89,7 @@ body {
 
 main {
   width: 100%;
-  max-width: 767.98px;
+  max-width: 1440px;
 }
 
 img {
@@ -122,8 +116,7 @@ a:any-link {
   align-items: center;
   position: relative;
   width: 100%;
-  max-width: 767.98px;
-  height: 63px;
+  max-width: 1440px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 .main-header__div {
@@ -143,6 +136,23 @@ a:any-link {
   font-size: 30px;
   font-weight: 400;
   margin: 14px 0px 5px 0px;
+}
+@media (min-width: 767.99px) {
+  .main-header__title {
+    display: none;
+    margin: 0px;
+  }
+}
+.main-header .dodo {
+  display: none;
+}
+@media (min-width: 767.99px) {
+  .main-header .dodo {
+    display: block;
+    width: 200px;
+    height: 34.2px;
+    margin: 30px 0px 31.8px 0px;
+  }
 }
 
 /* MAIN ############################################################################################################################################################ */
@@ -166,18 +176,49 @@ a:any-link {
   text-align: center;
   background: #F7F7F7;
 }
+@media (min-width: 767.99px) {
+  .intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+  }
+}
 .intro__section-title {
   height: 68px;
   margin: 39.5px 58px 0px 42px;
+}
+@media (min-width: 767.99px) {
+  .intro__section-title {
+    height: 47px;
+    font-size: 40px;
+    font-weight: 700px;
+    margin: 30px 0px 0px 0px;
+  }
 }
 .intro__txt-intro {
   font-size: 18px;
   font-weight: 300;
   margin: 0px 26px 27px 34px;
 }
+@media (min-width: 767.99px) {
+  .intro__txt-intro {
+    margin: 0px 455.5px 0px 453.5px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 531px;
+  }
+}
 .intro__button {
   width: 218px;
   margin: 0px 75px 57px 82px;
+}
+@media (min-width: 767.99px) {
+  .intro__button {
+    margin: 0px 624.5px 30px 597.5px;
+  }
 }
 
 /* FUNCTION #################################################################### */
@@ -189,12 +230,29 @@ a:any-link {
   gap: 26px;
   padding: 48px 20px 68px 20px;
 }
+@media (min-width: 767.99px) {
+  .function {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 50px 180px;
+  }
+}
 .function__stickers {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 25px;
   width: 100%;
+}
+@media (min-width: 767.99px) {
+  .function__stickers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .function__stickers-unit {
   display: flex;
@@ -206,6 +264,12 @@ a:any-link {
   border-radius: 20px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
   margin-left: 12.51px;
+}
+@media (min-width: 767.99px) {
+  .function__stickers-unit {
+    width: 100%;
+    min-width: 200px;
+  }
 }
 .function__stickers-unit-ring {
   display: flex;
@@ -242,6 +306,15 @@ a:any-link {
   padding: 54px 18px 66px 17px;
   background: #F7F7F7;
 }
+@media (min-width: 767.99px) {
+  .restaur {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 30px 180px;
+  }
+}
 .restaur__cards {
   display: flex;
   flex-direction: column;
@@ -250,7 +323,32 @@ a:any-link {
   gap: 18px;
   width: 100%;
 }
-.restaur__cards-unit {
+@media (min-width: 767.99px) {
+  .restaur__cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+}
+.restaur__cards-grp {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+@media (min-width: 767.99px) {
+  .restaur__cards-grp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+  }
+}
+.restaur__cards-grp-unit {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -259,11 +357,17 @@ a:any-link {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   border-radius: 0px 0px 15px 15px;
 }
-.restaur__cards-unit-img {
+@media (min-width: 767.99px) {
+  .restaur__cards-grp-unit {
+    min-width: 250px;
+  }
+}
+.restaur__cards-grp-unit-img {
+  width: 100%;
   height: 174px;
   border-radius: 15px 15px 0px 0px;
 }
-.restaur__cards-unit-new {
+.restaur__cards-grp-unit-new {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -277,7 +381,14 @@ a:any-link {
   border-radius: 2px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
-.restaur__cards-unit-content {
+@media (min-width: 767.99px) {
+  .restaur__cards-grp-unit-new {
+    position: absolute;
+    top: 13px;
+    right: 17.59px;
+  }
+}
+.restaur__cards-grp-unit-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -287,7 +398,12 @@ a:any-link {
   height: 77px;
   padding-left: 13px;
 }
-.restaur__cards-unit-content-icon {
+@media (min-width: 767.99px) {
+  .restaur__cards-grp-unit-content {
+    padding-left: 18.74px;
+  }
+}
+.restaur__cards-grp-unit-content-icon {
   position: absolute;
   top: 23px;
   right: 25px;
@@ -298,10 +414,20 @@ a:any-link {
 .menu-img {
   height: 275px;
 }
+@media (min-width: 767.99px) {
+  .menu-img {
+    height: 383px;
+  }
+}
 .menu-img__img {
   width: 100%;
   height: 275px;
   z-index: 1;
+}
+@media (min-width: 767.99px) {
+  .menu-img__img {
+    height: 383px;
+  }
 }
 
 /* MENU ######################################################################## */
@@ -318,23 +444,46 @@ a:any-link {
   border-radius: 40px 40px 0px 0px;
   z-index: 2;
 }
+@media (min-width: 767.99px) {
+  .menu {
+    padding: 51px 211px 40px 210px;
+    margin: -55px 192px 0px 193px;
+  }
+}
 .menu__div {
   position: relative;
   width: 100%;
-  margin-bottom: 2px;
+}
+@media (min-width: 767.99px) {
+  .menu__div {
+    width: 307px;
+  }
 }
 .menu__div-title {
   font-family: "Shrikhand", cursive;
   font-size: 28px;
   font-weight: 400;
+  height: 29px;
   margin: 0px 4px;
-  height: 27px;
+}
+@media (min-width: 767.99px) {
+  .menu__div-title {
+    height: 41px;
+    margin: 0px;
+  }
 }
 .menu__div-hearth {
   position: absolute;
   top: 8px;
   right: 24px;
   font-size: 22px;
+}
+@media (min-width: 767.99px) {
+  .menu__div-hearth {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+  }
 }
 .menu__stickers {
   display: flex;
@@ -343,6 +492,11 @@ a:any-link {
   align-items: flex-start;
   gap: 12px;
   width: 100%;
+}
+@media (min-width: 767.99px) {
+  .menu__stickers {
+    min-width: 300px;
+  }
 }
 .menu__stickers-title {
   font-size: 16px;
@@ -377,19 +531,36 @@ a:any-link {
 /* FOOTER ########################################################################################################################################################## */
 .main-footer {
   width: 100%;
-  max-width: 767.98px;
-}
-.main-footer__div {
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 16px;
   padding: 22px 25px;
+  box-sizing: border-box;
   color: white;
   background: #353535;
 }
-.main-footer__div-ul {
+@media (min-width: 767.99px) {
+  .main-footer {
+    width: 100%;
+    max-width: 1440px;
+    height: 114px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: end;
+    align-items: end;
+    padding: 30px 25px;
+  }
+}
+.main-footer__title {
+  font-family: "Shrikhand", cursive;
+  font-size: 18px;
+  font-weight: 400;
+  width: 137.58px;
+}
+.main-footer__ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -398,47 +569,63 @@ a:any-link {
   padding-left: 0px;
   list-style-type: none;
 }
-.main-footer__div-ulicon {
+@media (min-width: 767.99px) {
+  .main-footer__ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.main-footer__ulicon {
   position: relative;
 }
-.main-footer__div-ulicon-cutlery {
+.main-footer__ulicon-cutlery {
   font-size: 13px;
   vertical-align: middle;
 }
-.main-footer__div-ulicon-hand {
+.main-footer__ulicon-hand {
   width: 11.92px;
   height: 13px;
   vertical-align: middle;
 }
-.main-footer__div-ulicon-span {
-  position: absolute;
-  left: 22px;
+.main-footer__ulicon-span {
   white-space: nowrap;
 }
-.main-footer__div-ul-mail:-moz-any-link {
-  display: contents;
+@media (min-width: 767.99px) {
+  .main-footer__ulicon-span {
+    display: inline-block;
+    width: 168px;
+  }
+}
+@media (min-width: 767.99px) {
+  .main-footer__uli {
+    width: 130px;
+  }
+}
+.main-footer__ul-mail:-moz-any-link {
+  display: block;
   text-decoration: none;
   color: white;
 }
-.main-footer__div-ul-mail:any-link {
-  display: contents;
+.main-footer__ul-mail:any-link {
+  display: block;
   text-decoration: none;
   color: white;
 }
 
 /* RESPONSIVE_DESIGN | MEDIA_QUERIES ################################################################################################################################*/
-/* NORMAL_DEVICES (TABLETS, LESS/EQUAL THAN 1440px) ############################ */
-/* MEDIUM_DEVICES (TABLETS, LESS/EQUAL THAN 1024px) ############################ */
-/* SMALL_DEVICES (PHONES, LESS/EQUAL THAN 768px) ############################### */
 /* NOTES ########################################################################################################################################################### */
 /* FONTS ####################################################################### */
 /* "Shrikhand" font :
+- font-size: 40px + font-weight: 700;
+    > X? elements style | Existing class NO_to be create = %section-title
 - font-size: 30px + font-weight: 400;
     > X1 element style | Existing class NO_to be create = main-header__title
 - font-size: 28px + font-weight: 400;
     > X1 element style | Existing class NO_to be create = menu__restaur-title
 - font-size: 18px + font-weight: 400;
-    > X1 element style | Existing class NO_to be create = footer-title
+    > X1 element style | Existing class NO_to be create = main-footer__title
 
 
 "Roboto" font :
@@ -468,14 +655,10 @@ a:any-link {
 - font-size: 14px + font-weight: 500;
     > X1 element style | Existing class NO_to be create = txt-new
 
-Remaining :
-- font-size: 40px + font-weight: 700;
-    > X? elements style | Existing class NO_to be create = ?
-
 On an imported font, to be able to apply a {font-weight: 700} for example and have it work,
 you must also import the font style corresponding to the font-weight at 700, otherwise it will not work and no difference will be visible.
 -----------------------------------------------------------
 Generally, the default browser font size is 16px, with a font-weight of 400.
 -----------------------------------------------------------
 By default, an h* title is automatically assigned a size in pixels, depending on its title level (h1,h2,h3 etc) and
-an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style_v2.3.css.map */
+an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style_v3.css.map */

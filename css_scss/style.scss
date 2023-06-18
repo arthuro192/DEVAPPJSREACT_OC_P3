@@ -13,19 +13,19 @@ The result must be identical.
 .bd_green  = Layer_5 (L5/indentation n°4) + Layer_10 (L10/indentation n°9) de*/
 
 // .bd_black {
-//     border: 2px solid #000000
+//     border: 3px solid #000000
 // }
 // .bd_blue {
-//     border: 2px solid #0077b6
+//     border: 3px solid #0077b6
 // }
 // .bd_yellow {
-//     border: 2px solid #ffc300
+//     border: 3px solid #ffc300
 // }
 // .bd_red {
-//     border: 2px solid #9d0208
+//     border: 3px solid #9d0208
 // }
 // .bd_green {
-//     border: 2px solid #70e000
+//     border: 3px solid #70e000
 // }
 
 /* GENERAL ######################################################################################################################################################### */
@@ -75,6 +75,7 @@ The result must be identical.
     background: linear-gradient(to bottom, #FF79DA -11.44%, #9356DC 123.93%);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
+
 /* VARIABLES ################################################################### */
 
 /* COLORS ############################ */
@@ -96,10 +97,6 @@ $font-shrikhand: 'Shrikhand', cursive;
 
 * {
     font-family: $font-roboto;
-}
-.footer-title {
-    font-family: $font-shrikhand;
-    @include font($size: 18px,$weight: 400);
 }
 .section-title {
     @extend %section-title;
@@ -138,7 +135,7 @@ body {
     @include flex($direct: column);
 }
 main {
-    @include size($width: 100%, $max: 767.98px);
+    @include size($width: 100%, $max: 1440px);
 }
 img {
     object-fit: cover;
@@ -154,7 +151,7 @@ a:any-link {
 .main-header {
     @include flex;
     position: relative;
-    @include size($width: 100%, $max: 767.98px, $height: 63px);
+    @include size($width: 100%, $max: 1440px);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
     &__div {
@@ -171,6 +168,24 @@ a:any-link {
         font-family: $font-shrikhand;
         @include font($size: 30px,$weight: 400);
         margin: 14px 0px 5px 0px;
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            display: none;
+            margin: 0px;
+        }
+
+    }
+    .dodo {
+        display: none;
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            display: block;
+            @include size($width: 200px, $height: 34.2px);
+            margin: 30px 0px 31.8px 0px;
+        }
+
     }
 
 }
@@ -193,19 +208,50 @@ a:any-link {
     text-align: center;
     background: $color-04;
 
+    // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+    @media (min-width: 767.99px) {
+        @include flex($gap: 18px);
+    }
+
     &__section-title {
         @extend %section-title;
         @include size($height: 68px);
         margin: 39.5px 58px 0px 42px;
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            @include size($height: 47px);
+            @include font($size: 40px, $weight: 700px);
+            margin: 30px 0px 0px 0px;
+        }
+
     }
     &__txt-intro {
         @include font($size: 18px,$weight: 300);
         margin: 0px 26px 27px 34px;
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            margin: 0px 455.5px 0px 453.5px;
+            height: 46px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 531px;
+        }
+
     }
     &__button {
         @extend %button;
         @include size($width: 218px);
         margin: 0px 75px 57px 82px;
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            // margin: 0px 0px 30px 0px;
+            margin: 0px 624.5px 30px 597.5px;
+        }
+
     }
 
 }
@@ -216,9 +262,20 @@ a:any-link {
     @include flex($direct: column, $align: flex-start, $gap: 26px);
     padding: 48px 20px 68px 20px;
 
+    // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+    @media (min-width: 767.99px) {
+        @include flex($align: flex-start, $gap: 25px);
+        padding: 50px 180px;
+    }
+
     &__stickers {
         @include flex($direct: column, $align: null, $gap: 25px);
         @include size($width: 100%);
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            @include flex($direct: row);
+        }
 
         &-unit {
             @include flex;
@@ -228,6 +285,12 @@ a:any-link {
             border-radius: 20px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
             margin-left: 12.51px;
+
+            // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+            @media (min-width: 767.99px) {
+                @include size($width: 100%);
+                min-width: 200px;
+            }
 
             &-ring {
                 @include flex;
@@ -262,41 +325,79 @@ a:any-link {
     padding: 54px 18px 66px 17px;
     background: $color-04;
 
+    // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+    @media (min-width: 767.99px) {
+        @include flex($align: flex-start, $gap: 28px);
+        padding: 30px 180px;
+    }
+
     &__cards {
         @include flex($direct: column, $gap: 18px);
         @include size($width: 100%);
 
-        &-unit {
-            @include flex($direct: column, $align: null);
-            position: relative;
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            @include flex($gap: 50px);
+        }
+
+        &-grp {
             @include size($width: 100%);
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 0px 0px 15px 15px;
+            @include flex($direct: column, $gap: 18px);
 
-            &-img {
-                @include size($height: 174px);
-                border-radius: 15px 15px 0px 0px;
+            // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+            @media (min-width: 767.99px) {
+                @include flex($direct: row, $gap: 100px);
             }
-            &-new {
-                @include flex;
-                @include absolute($top: 13px, $right: 12px);
-                @include size($width: 80px, $height: 29px);
-                color: $color-new;
-                background: $color-02;
-                border-radius: 2px;
-                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-            }
-            &-content {
-                @include flex($direct: column, $align: flex-start, $gap: 5px);
+
+            &-unit {
+                @include flex($direct: column, $align: null);
                 position: relative;
-                @include size($height: 77px);
-                padding-left: 13px;
+                @include size($width: 100%);
+                box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+                border-radius: 0px 0px 15px 15px;
 
-                &-icon {
-                    @include absolute($top: 23px, $right: 25px);
-                    @include font($size: 22px)
+                // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+                @media (min-width: 767.99px) {
+                    min-width: 250px;
                 }
-
+    
+                &-img {
+                    @include size($width: 100%, $height: 174px);
+                    border-radius: 15px 15px 0px 0px;
+                }
+                &-new {
+                    @include flex;
+                    @include absolute($top: 13px, $right: 12px);
+                    @include size($width: 80px, $height: 29px);
+                    color: $color-new;
+                    background: $color-02;
+                    border-radius: 2px;
+                    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    
+                    // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+                    @media (min-width: 767.99px) {
+                        @include absolute($top: 13px, $right: 17.59px);
+                    }
+    
+                }
+                &-content {
+                    @include flex($direct: column, $align: flex-start, $gap: 5px);
+                    position: relative;
+                    @include size($height: 77px);
+                    padding-left: 13px;
+    
+                    // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+                    @media (min-width: 767.99px) {
+                        padding-left: 18.74px;
+                    }
+    
+                    &-icon {
+                        @include absolute($top: 23px, $right: 25px);
+                        @include font($size: 22px)
+                    }
+    
+                }
+    
             }
 
         }
@@ -310,9 +411,20 @@ a:any-link {
 .menu-img {
     @include size($height: 275px);
 
+    // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+    @media (min-width: 767.99px) {
+        @include size($height: 383px);
+    }
+
     &__img {
         @include size($width: 100%, $height: 275px);
         z-index: 1;
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            @include size($height: 383px);
+        }
+
     }
 
 }
@@ -328,27 +440,54 @@ a:any-link {
     border-radius: 40px 40px 0px 0px;
     z-index: 2;
 
+    // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+    @media (min-width: 767.99px) {
+        padding: 51px 211px 40px 210px;
+        margin: -55px 192px 0px 193px;
+    }
+
     &__div {
         position: relative;
         @include size($width: 100%);
-        margin-bottom: 2px;
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            @include size($width: 307px);
+        }
 
         &-title {
             font-family: $font-shrikhand;
             @include font($size: 28px,$weight: 400);
+            @include size($height: 29px);
             margin: 0px 4px;
-            @include size($height: 27px);
+
+            // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+            @media (min-width: 767.99px) {
+                @include size($height: 41px);
+                margin: 0px;
+            }
+
         }        
         &-hearth {
             @include absolute($top: 8px, $right: 24px);
-            @include font($size: 22px)
+            @include font($size: 22px);
+
+            // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+            @media (min-width: 767.99px) {
+                @include absolute($top: 10px, $right: 0px);
+            }
+    
         }
 
     }
-
     &__stickers {
         @include flex($direct: column, $align: flex-start, $gap: 12px);
         @include size($width: 100%);
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            min-width: 300px;
+        }
 
         &-title {
             @include font($size: 16px,$weight: 300);
@@ -356,7 +495,6 @@ a:any-link {
             border-bottom: 3px solid $color-02;
             box-sizing: border-box;
         }
-
         &-unit {
             @include flex($just: space-between, $align: flex-end);
             @include size($width: 100%);
@@ -373,7 +511,6 @@ a:any-link {
         }
 
     }
-
     &__button {
         @extend %button;
         @include size($width: 186px);
@@ -384,42 +521,69 @@ a:any-link {
 /* FOOTER ########################################################################################################################################################## */
 
 .main-footer {
-    @include size($width: 100%, $max: 767.98px);
+    @include size($width: 100%, $max: 1440px);
+    @include flex($direct: column, $align: flex-start, $gap: 16px);
+    padding: 22px 25px;
+    box-sizing: border-box;
+    color: white;
+    background: $color-03;
 
-    &__div {
-        @include flex($direct: column, $align: flex-start, $gap: 16px);
-        padding: 22px 25px;
-        color: white;
-        background: $color-03;
+    // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+    @media (min-width: 767.99px) {
+        @include size($width: 100%, $max: 1440px, $height: 114px);
+        @include flex($direct: row-reverse, $just: end, $align: end);
+        padding: 30px 25px;;
+    }
 
-        &-ul {
-            @include flex($direct: column, $align: flex-start, $gap: 7px);
-            padding-left: 0px;
-            list-style-type: none;
-    
-            &icon {
-                position: relative;
-    
-                &-cutlery {
-                    @include font($size: 13px);
-                    vertical-align: middle;
-                }
-                &-hand {
-                    @include size($width: 11.92px, $height: 13px);
-                    vertical-align: middle;
-                }
-                &-span { 
-                    @include absolute($left: 22px);
-                    white-space: nowrap;
-                }
-    
+    &__title {
+        font-family: $font-shrikhand;
+        @include font($size: 18px,$weight: 400);
+        @include size($width: 137.58px);
+    }
+
+    &__ul {
+        @include flex($direct: column, $align: flex-start, $gap: 7px);
+        padding-left: 0px;
+        list-style-type: none;
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            @include flex($direct: row);
+        }
+
+        &icon {
+            position: relative;
+
+            &-cutlery {
+                @include font($size: 13px);
+                vertical-align: middle;
             }
-            &-mail:any-link {
-                display: contents;
-                text-decoration: none;
-                color: white;
+            &-hand {
+                @include size($width: 11.92px, $height: 13px);
+                vertical-align: middle;
             }
-    
+            &-span {
+                white-space: nowrap;
+
+                // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+                @media (min-width: 767.99px) {
+                    display: inline-block;
+                    @include size($width: 168px);
+                }
+            }
+
+        }
+        &i {
+            // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+            @media (min-width: 767.99px) {
+                width: 130px;
+           }
+        } 
+        &-mail:any-link {
+            display: block;
+            text-decoration: none;
+            color: white;
+            // width: 130px;
         }
 
     }
@@ -430,35 +594,21 @@ a:any-link {
 
 /* RESPONSIVE_DESIGN | MEDIA_QUERIES ################################################################################################################################*/
 
-/* NORMAL_DEVICES (TABLETS, LESS/EQUAL THAN 1440px) ############################ */
-
-@media (max-width: 1440px) {
-
-}
-
-/* MEDIUM_DEVICES (TABLETS, LESS/EQUAL THAN 1024px) ############################ */
-
-@media (max-width: 1024px) {
-
-}
-
-/* SMALL_DEVICES (PHONES, LESS/EQUAL THAN 768px) ############################### */
-
-@media (max-width: 767.98px) {
-
-}
+// MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
 
 /* NOTES ########################################################################################################################################################### */
 
 /* FONTS ####################################################################### */
 
 /* "Shrikhand" font :
+- font-size: 40px + font-weight: 700;
+    > X? elements style | Existing class NO_to be create = %section-title
 - font-size: 30px + font-weight: 400;
     > X1 element style | Existing class NO_to be create = main-header__title
 - font-size: 28px + font-weight: 400;
     > X1 element style | Existing class NO_to be create = menu__restaur-title
 - font-size: 18px + font-weight: 400;
-    > X1 element style | Existing class NO_to be create = footer-title
+    > X1 element style | Existing class NO_to be create = main-footer__title
 
 
 "Roboto" font :
@@ -487,10 +637,6 @@ a:any-link {
     > X1 element style | Existing class NO_to be create = txt-num
 - font-size: 14px + font-weight: 500;
     > X1 element style | Existing class NO_to be create = txt-new
-
-Remaining :
-- font-size: 40px + font-weight: 700;
-    > X? elements style | Existing class NO_to be create = ?
 
 On an imported font, to be able to apply a {font-weight: 700} for example and have it work,
 you must also import the font style corresponding to the font-weight at 700, otherwise it will not work and no difference will be visible.
