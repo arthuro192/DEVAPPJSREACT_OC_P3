@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ohmyfood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Shrikhand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./css_scss/style.css">
+</head>
+<body class="bd_black">
+    <header class="bd_blue main_header">
+        <h1 class="bd_yellow header_title">ohmyfood</h1>
+    </header>
+    <main class="bd_blue">
+        <section class="bd_yellow location">
+            <i class="bd_red fa-solid fa-location-dot"></i>
+            <p class="bd_red font_01">Paris, Belleville</p>
+        </section>
+        <section class="bd_yellow intro">
+            <h2 class="bd_red section_title">Réservez le menu qui vous convient</h2>
+            <p class="bd_red txt_intro">Découvrez des restaurants d'exception, sélectionnés par nos soins.</p>
+            <a href="#restaurants">
+                <button class="bd_green font_01 button_pink" type="button">Explorer nos restaurants</button>
+            </a>
+        </section>
+        <section class="bd_yellow function">
+            <h2 class="bd_red section_title">Fonctionnement</h2>
+            <div class="bd_red function_stickers">
+                <div class="bd_green sticker">
+                    <div class="bd_black sticker_round">
+                        <p class="bd_blue txt_num">1</p>
+                    </div>
+                    <i class="bd_black sticker_icon fa-solid fa-mobile-screen-button"></i>
+                    <p class="bd_black font_01">Choisissez un restaurant</p>
+                </div>
+                <div class="bd_green sticker">
+                    <div class="bd_black sticker_round">
+                        <p class="bd_blue txt_num">2</p>
+                    </div>
+                    <i class="bd_black sticker_icon fa-solid fa-list-ul"></i>
+                    <p class="bd_black font_01">Composez votre menu</p>
+                </div>
+                <div class="bd_green sticker">
+                    <div class="bd_black sticker_round">
+                        <p class="bd_blue txt_num">3</p>
+                    </div>
+                    <i class="bd_black sticker_icon store fa-solid fa-store"></i>
+                    <p class="bd_black font_01">Dégustez au restaurant</p>
+                </div>
+            </div>
+        </section>
+        <section class="bd_yellow restaurants">
+            <h2 class="bd_red section_title" id="restaurants">Restaurants</h2>
+            <div class="bd_red restau_cards">
+                <a href="./restaurants/la_palette_du_gout.html">
+                    <article class="bd_black card">
+                        <img class="bd_blue" src="./img/restaurants/jay_wennington.jpg">
+                        <div class="bd_blue card_new">
+                            <p class="bd_yellow txt_new">Nouveau</p>
+                        </div>
+                        <div class="bd_blue card_content">
+                            <h3 class="bd_yellow card_title">La palette du goût</h3>
+                            <p class="bd_yellow fon card_subtitle">Ménilmontant</p>
+                            <i class="bd_yellow card_content_icon fa-regular fa-heart"></i>
+                        </div>
+                    </article>
+                </a>
+                <a href="./restaurants/la_palette_du_gout.html">
+                    <article class="bd_black card">
+                        <img class="bd_blue" src="./img/restaurants/stil.jpg">
+                        <div class="bd_blue card_new">
+                            <p class="bd_yellow txt_new">Nouveau</p>
+                        </div>
+                        <div class="bd_blue card_content">
+                            <h3 class="bd_yellow card_title">La note enchantée</h3>
+                            <p class="bd_yellow card_subtitle">Charonne</p>
+                            <i class="bd_yellow card_content_icon fa-regular fa-heart"></i>
+                        </div>
+                    </article>
+                </a>
+                <a href="./restaurants/la_palette_du_gout.html">
+                    <article class="bd_black card">
+                        <img class="bd_blue" src="./img/restaurants/toa_heftiba.jpg">
+                        <div class="bd_blue card_content">
+                            <h3 class="bd_yellow card_title">À la française</h3>
+                            <p class="bd_yellow card_subtitle">Cité Rouge</p>
+                            <i class="bd_yellow card_content_icon fa-regular fa-heart"></i>
+                        </div>
+                    </article>
+                </a>
+                <a href="./restaurants/la_palette_du_gout.html">
+                    <article class="bd_black card">
+                        <img class="bd_blue" src="./img/restaurants/louis_hansel.jpg">
+                        <div class="bd_blue card_content">
+                            <h3 class="bd_yellow card_title">Le délice des sens</h3>
+                            <p class="bd_yellow card_subtitle">Folie-Méricourt</p>
+                            <i class="bd_yellow card_content_icon fa-regular fa-heart"></i>
+                        </div>
+                    </article>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer class="bd_blue main_footer">
+        <div class="bd_yellow main_footer_div">
+            <h3 class="bd_red footer_title">ohmyfood</h3>
+            <ul class="bd_red">
+                <li class="bd_green font_01 li_icons">
+                    <i class="bd_black cutlery_icon fa-solid fa-utensils"></i>
+                    <span class="bd_black font_01 span_icons">Proposer un restaurant</span>
+                </li>
+                <li class="bd_green font_01 li_icons">
+                    <img class="bd_black hand_icon" src="./img/handshake_angle.png">
+                    <span class="bd_black font_01 span_icons">Devenir partenaire</span>
+                </li>
+                <li class="bd_green">Mentions légales</li>
+                <li class="bd_green"><a href="mailto:fernandesarthur.contact@gmail.com">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
