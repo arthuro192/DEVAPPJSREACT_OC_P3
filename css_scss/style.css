@@ -32,6 +32,12 @@ The result must be identical.
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
+.menu__div .heart__after, .menu__div .heart__before, .restaur__cards-grp-unit-content .heart__after, .restaur__cards-grp-unit-content .heart__before {
+  position: absolute;
+  width: 22px;
+  height: 21px;
+}
+
 /* ANIMATIONS ################################################################## */
 @keyframes anim_stickers {
   0% {
@@ -432,11 +438,20 @@ a:any-link {
     padding-left: 18.74px;
   }
 }
-.restaur__cards-grp-unit-content-icon {
+.restaur__cards-grp-unit-content .heart {
   position: absolute;
   top: 23px;
   right: 25px;
-  font-size: 22px;
+  width: 22px;
+  height: 21px;
+}
+.restaur__cards-grp-unit-content .heart__after {
+  opacity: 0;
+  transition: opacity 1s, transform 1s 0.1s;
+}
+.restaur__cards-grp-unit-content .heart__after:hover {
+  opacity: 1;
+  transform: scale(1.2);
 }
 
 /* MENU-IMG ################################################################# */
@@ -504,18 +519,27 @@ a:any-link {
     margin: 0px;
   }
 }
-.menu__div-hearth {
+.menu__div .heart {
   position: absolute;
   top: 8px;
   right: 24px;
-  font-size: 22px;
+  width: 22px;
+  height: 21px;
 }
 @media (min-width: 767.99px) {
-  .menu__div-hearth {
+  .menu__div .heart {
     position: absolute;
     top: 10px;
     right: 0px;
   }
+}
+.menu__div .heart__after {
+  opacity: 0;
+  transition: opacity 1s, transform 1s 0.1s;
+}
+.menu__div .heart__after:hover {
+  opacity: 1;
+  transform: scale(1.2);
 }
 .menu__stickers {
   display: flex;
@@ -734,4 +758,4 @@ you must also import the font style corresponding to the font-weight at 700, oth
 Generally, the default browser font size is 16px, with a font-weight of 400.
 -----------------------------------------------------------
 By default, an h* title is automatically assigned a size in pixels, depending on its title level (h1,h2,h3 etc) and
-an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style_v4.2.css.map */
+an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style_v4.3.css.map */

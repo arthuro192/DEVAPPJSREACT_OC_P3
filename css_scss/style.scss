@@ -71,6 +71,10 @@ The result must be identical.
     background: linear-gradient(to bottom, #FF79DA -11.44%, #9356DC 123.93%);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
+%heart {
+    @include absolute;
+    @include size($width: 22px, $height: 21px)
+}
 
 /* ANIMATIONS ################################################################## */
 
@@ -417,12 +421,28 @@ a:any-link {
                     @media (min-width: 767.99px) {
                         padding-left: 18.74px;
                     }
-    
-                    &-icon {
+                    .heart {
                         @include absolute($top: 23px, $right: 25px);
-                        @include font($size: 22px)
+                        @include size($width: 22px, $height: 21px);
+
+                        &__before {
+                            @extend %heart;
+                        }
+                        &__after {
+                            @extend %heart;
+                            opacity: 0;
+                            transition: opacity 1s, transform 1s 0.1s;
+
+                            &:hover {
+                                opacity: 1;
+                                transform: scale(1.2);
+
+                            }
+
+                        }
+
                     }
-    
+
                 }
     
             }
@@ -498,18 +518,32 @@ a:any-link {
                 margin: 0px;
             }
 
-        }        
-        &-hearth {
+        }
+        .heart {
             @include absolute($top: 8px, $right: 24px);
-            @include font($size: 22px);
+            @include size($width: 22px, $height: 21px);
 
             // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
             @media (min-width: 767.99px) {
                 @include absolute($top: 10px, $right: 0px);
             }
-    
-        }
 
+            &__before {
+                @extend %heart;
+            }
+            &__after {
+                @extend %heart;
+                opacity: 0;
+                transition: opacity 1s, transform 1s 0.1s;
+
+                &:hover {
+                    opacity: 1;
+                    transform: scale(1.2);
+                }
+
+            }
+
+        }
     }
     &__stickers {
         @include flex($direct: column, $align: flex-start, $gap: 12px);
