@@ -23,7 +23,7 @@ The result must be identical.
   font-weight: 500px;
 }
 
-.menu__button, .intro__button {
+.menu__btn, .intro__btn {
   height: 50px;
   color: white;
   border: none;
@@ -211,12 +211,21 @@ a:any-link {
     width: 531px;
   }
 }
-.intro__button {
+.intro__btn {
   width: 218px;
   margin: 0px 75px 57px 82px;
+  transition: opacity 500ms;
+}
+.intro__btn:hover {
+  opacity: 0.85;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
+}
+.intro__btn:hover .intro__btn-txt {
+  display: inline-block;
+  transform: translateY(-1px);
 }
 @media (min-width: 767.99px) {
-  .intro__button {
+  .intro__btn {
     margin: 0px 624.5px 30px 597.5px;
   }
 }
@@ -511,7 +520,7 @@ a:any-link {
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
-  padding: 13.5px 15px;
+  padding: 12px 15px;
   box-sizing: border-box;
   border-radius: 15.0431px;
   box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
@@ -524,8 +533,17 @@ a:any-link {
   align-items: flex-start;
   gap: 5px;
 }
-.menu__button {
+.menu__btn {
   width: 186px;
+  transition: opacity 500ms;
+}
+.menu__btn:hover {
+  opacity: 0.85;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
+}
+.menu__btn:hover .menu__btn-txt {
+  display: inline-block;
+  transform: translateY(-1px);
 }
 
 /* FOOTER ########################################################################################################################################################## */
@@ -661,4 +679,4 @@ you must also import the font style corresponding to the font-weight at 700, oth
 Generally, the default browser font size is 16px, with a font-weight of 400.
 -----------------------------------------------------------
 By default, an h* title is automatically assigned a size in pixels, depending on its title level (h1,h2,h3 etc) and
-an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style_v3.css.map */
+an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style_v4.1.css.map */

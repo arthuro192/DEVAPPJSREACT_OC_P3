@@ -39,12 +39,10 @@ The result must be identical.
     align-items: $align;
     gap: $gap;
 }
-
 @mixin font ($size: null, $weight: null) {
     font-size: $size;
     font-weight: $weight;
 }
-
 @mixin absolute ($top: null, $right: null, $bott: null, $left: null) {
     position: absolute;
     top: $top;
@@ -52,7 +50,6 @@ The result must be identical.
     bottom: $bott;
     left: $left;
 }
-
 @mixin size ($width: null, $max: null, $height: null) {
     width: $width;
     max-width: $max;
@@ -67,7 +64,7 @@ The result must be identical.
 %font-01 {
     @include font($size: 16px, $weight: 500px);
 }
-%button {
+%btn {
     @include size($height: 50px);
     color: white;
     border: none;
@@ -241,14 +238,24 @@ a:any-link {
         }
 
     }
-    &__button {
-        @extend %button;
+    &__btn {
+        @extend %btn;
         @include size($width: 218px);
         margin: 0px 75px 57px 82px;
+        transition: opacity 500ms;
 
+        &:hover {
+            opacity: 0.85;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
+
+            & .intro__btn-txt {
+              display: inline-block;
+              transform: translateY(-1px);
+            }
+
+        }
         // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
         @media (min-width: 767.99px) {
-            // margin: 0px 0px 30px 0px;
             margin: 0px 624.5px 30px 597.5px;
         }
 
@@ -498,7 +505,7 @@ a:any-link {
         &-unit {
             @include flex($just: space-between, $align: flex-end);
             @include size($width: 100%);
-            padding: 13.5px 15px;
+            padding: 12px 15px;
             box-sizing: border-box;
             border-radius: 15.0431px;
             box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
@@ -511,9 +518,22 @@ a:any-link {
         }
 
     }
-    &__button {
-        @extend %button;
+    &__btn {
+        @extend %btn;
         @include size($width: 186px);
+        transition: opacity 500ms;
+
+        &:hover {
+            opacity: 0.85;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
+
+            & .menu__btn-txt {
+              display: inline-block;
+              transform: translateY(-1px);
+            }
+
+        }
+
     }
 
 }
