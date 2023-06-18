@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* MAQUETTE.PDF | LEGEND_COLOR ##################################################################################################################################### */
+/* MAQUETTE | LEGEND_COLOR ######################################################################################################################################### */
 /* You have to uncomment this section (line 15 to 29), to see all the different colour borders on the HTML page.
 The coloured borders represent all the blocks drawn on the model.
 One colour = one specific layer/depth level & one specific indentation level.
@@ -15,12 +15,12 @@ The result must be identical.
 /* EXTENDS ##################################################################### */
 .intro__section-title, .section-title {
   font-size: 24px;
-  font-weight: 700px;
+  font-weight: 700;
 }
 
 .function__stickers-unit-font01, .font-01 {
   font-size: 16px;
-  font-weight: 500px;
+  font-weight: 500;
 }
 
 .menu__btn, .intro__btn {
@@ -191,12 +191,12 @@ a:any-link {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: fixed;
   width: 100%;
   height: 100%;
   animation-name: loader;
   animation-duration: 3000ms;
   animation-fill-mode: both;
-  position: fixed;
   top: 0px;
   z-index: 1;
   background: white;
@@ -221,8 +221,8 @@ a:any-link {
   }
 }
 .loader__txt {
-  position: absolute;
-  top: 440px;
+  position: relative;
+  top: -120px;
   height: 45px;
   font-size: 45px;
   animation-name: loader__txt;
@@ -235,15 +235,15 @@ a:any-link {
 }
 @media (min-width: 767.99px) {
   .loader__txt {
-    position: absolute;
-    top: 415px;
+    position: relative;
+    top: -164px;
     height: 60px;
-    font-size: 60px;
+    font-size: 4em;
   }
 }
 .loader__line {
-  position: absolute;
-  top: 485px;
+  position: relative;
+  top: -120px;
   width: 375px;
   height: 7.5px;
   animation-name: loader__line;
@@ -255,8 +255,8 @@ a:any-link {
 }
 @media (min-width: 767.99px) {
   .loader__line {
-    position: absolute;
-    top: 476px;
+    position: relative;
+    top: -160px;
     width: 500px;
     height: 10px;
   }
@@ -297,11 +297,11 @@ a:any-link {
     margin: 0px;
   }
 }
-.main-header .dodo {
+.main-header__img {
   display: none;
 }
 @media (min-width: 767.99px) {
-  .main-header .dodo {
+  .main-header__img {
     display: block;
     width: 200px;
     height: 34.2px;
@@ -346,7 +346,7 @@ a:any-link {
   .intro__section-title {
     height: 47px;
     font-size: 40px;
-    font-weight: 700px;
+    font-weight: 700;
     margin: 30px 0px 0px 0px;
   }
 }
@@ -451,12 +451,12 @@ a:any-link {
   left: 34.5px;
   color: #7E7E7E;
 }
-.function__stickers-unit__icons:hover {
-  color: #9356DC;
-}
 .function__stickers-unit-font01 {
   position: absolute;
   left: 73.49px;
+}
+.function__stickers-unit:hover .function__stickers-unit-icon {
+  color: #9356DC;
 }
 
 /* RESTAURANTS ################################################################# */
@@ -495,12 +495,12 @@ a:any-link {
   }
 }
 .restaur__cards-grp {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 18px;
+  width: 100%;
 }
 @media (min-width: 767.99px) {
   .restaur__cards-grp {
@@ -582,7 +582,7 @@ a:any-link {
   transform: scale(1.2);
 }
 
-/* MENU-IMG ################################################################# */
+/* MENU-IMG #################################################################### */
 .menu-img {
   height: 275px;
 }
@@ -684,10 +684,10 @@ a:any-link {
   }
 }
 .menu__stickers-title {
-  font-size: 16px;
-  font-weight: 300;
   width: 40px;
   height: 27px;
+  font-size: 16px;
+  font-weight: 300;
   border-bottom: 3px solid #99E2D0;
   box-sizing: border-box;
 }
@@ -695,9 +695,9 @@ a:any-link {
   display: flex;
   justify-content: space-between;
   align-items: end;
+  position: relative;
   width: 100%;
   height: 69px;
-  position: relative;
   padding: 12px 15px;
   box-sizing: border-box;
   border-radius: 15.0431px;
@@ -722,10 +722,10 @@ a:any-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 59px;
-  height: 69px;
   position: relative;
   left: 74px;
+  width: 59px;
+  height: 69px;
   margin: -12px 0px;
   font-size: 20px;
   color: white;
@@ -734,10 +734,10 @@ a:any-link {
 .menu__stickers-unit > .menu__stickers-unit-check, .menu__stickers-unit .plate-price {
   transition: all 250ms linear;
 }
-.menu__stickers-unit:active .menu__stickers-unit-check {
+.menu__stickers-unit:hover .menu__stickers-unit-check {
   transform: translateX(-59px);
 }
-.menu__stickers-unit:active .plate-price {
+.menu__stickers-unit:hover .plate-price {
   transform: translateX(-59px);
 }
 .menu__btn {
@@ -751,17 +751,18 @@ a:any-link {
 .menu__btn:hover .menu__btn-txt {
   display: inline-block;
   transform: translateY(-1px);
+  color: white;
 }
 
 /* FOOTER ########################################################################################################################################################## */
 .main-footer {
-  width: 100%;
-  max-width: 1440px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 16px;
+  width: 100%;
+  max-width: 1440px;
   padding: 22px 25px;
   box-sizing: border-box;
   color: white;
@@ -769,21 +770,21 @@ a:any-link {
 }
 @media (min-width: 767.99px) {
   .main-footer {
-    width: 100%;
-    max-width: 1440px;
-    height: 114px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: end;
     align-items: end;
+    width: 100%;
+    max-width: 1440px;
+    height: 114px;
     padding: 30px 25px;
   }
 }
 .main-footer__title {
   font-family: "Shrikhand", cursive;
+  width: 137.58px;
   font-size: 18px;
   font-weight: 400;
-  width: 137.58px;
 }
 .main-footer__ul {
   display: flex;
@@ -839,7 +840,6 @@ a:any-link {
   color: white;
 }
 
-/* RESPONSIVE_DESIGN | MEDIA_QUERIES ################################################################################################################################*/
 /* NOTES ########################################################################################################################################################### */
 /* FONTS ####################################################################### */
 /* "Shrikhand" font :
@@ -885,4 +885,4 @@ you must also import the font style corresponding to the font-weight at 700, oth
 Generally, the default browser font size is 16px, with a font-weight of 400.
 -----------------------------------------------------------
 By default, an h* title is automatically assigned a size in pixels, depending on its title level (h1,h2,h3 etc) and
-an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style_v4.4.css.map */
+an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style_v5.css.map */

@@ -1,5 +1,6 @@
 
-/* MAQUETTE.PDF | LEGEND_COLOR ##################################################################################################################################### */
+/* MAQUETTE | LEGEND_COLOR ######################################################################################################################################### */
+
 /* You have to uncomment this section (line 15 to 29), to see all the different colour borders on the HTML page.
 The coloured borders represent all the blocks drawn on the model.
 One colour = one specific layer/depth level & one specific indentation level.
@@ -38,8 +39,8 @@ The result must be identical.
     align-items: $align;
     gap: $gap;
 }
-@mixin absolute ($top: null, $right: null, $bott: null, $left: null) {
-    position: absolute;
+@mixin position ($position: absolute, $top: null, $right: null, $bott: null, $left: null) {
+    position: $position;
     top: $top;
     right: $right;
     bottom: $bott;
@@ -68,10 +69,10 @@ The result must be identical.
 /* EXTENDS ##################################################################### */
 
 %section-title {
-    @include font($size: 24px, $weight: 700px);
+    @include font($size: 24px, $weight: 700);
 }
 %font-01 {
-    @include font($size: 16px, $weight: 500px);
+    @include font($size: 16px, $weight: 500);
 }
 %btn {
     @include size($height: 50px);
@@ -82,7 +83,7 @@ The result must be identical.
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 %heart {
-    @include absolute;
+    @include position;
     @include size($width: 22px, $height: 21px)
 }
 
@@ -190,7 +191,7 @@ $font-shrikhand: 'Shrikhand', cursive;
 }
 .plate-price {
     @include font($size: 15.04px,$weight: 700);
-    @include absolute($right: 15px);
+    @include position($right: 15px);
     background: white;
 }
 .plate-subtitle {
@@ -230,9 +231,9 @@ a:any-link {
 
 .loader {
     @include flex($direct: column);
+    @include position($position: fixed);
     @include size($width: 100%, $height: 100%);
     @include animation($name: loader, $duration: 3000ms, $fill: both);
-    position: fixed;
     top: 0px;
     z-index: 1;
     background: white;
@@ -254,7 +255,7 @@ a:any-link {
 
     }
     &__txt {
-        @include absolute($top: 440px);
+        @include position($position: relative, $top: -120px);
         @include size($height: 45px);
         @include font($size: 45px);
         @include animation($name: loader__txt, $duration: 3000ms, $timing: ease-in, $delay: 100ms, $fill: both);
@@ -263,14 +264,14 @@ a:any-link {
 
         // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
         @media (min-width: 767.99px) {
-            @include absolute($top: 415px);
+            @include position($position: relative, $top: -164px);
             @include size($height: 60px);
-            @include font($size: 60px);
+            @include font($size: 4em);
         }
 
     }
     &__line {
-        @include absolute($top: 485px);
+        @include position($position: relative, $top: -120px);
         @include size($width: 375px, $height: 7.5px);
         @include animation($name: loader__line, $duration: 3000ms, $timing: ease-in, $fill: both);
         background: linear-gradient(to right, white 0%, #d95dca 10%, white 50%, #610698 90%, white 100%);
@@ -278,7 +279,7 @@ a:any-link {
 
         // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
         @media (min-width: 767.99px) {
-            @include absolute($top: 476px);
+            @include position($position: relative, $top: -160px);
             @include size($width: 500px, $height: 10px);
         }
 
@@ -290,13 +291,13 @@ a:any-link {
 
 .main-header {
     @include flex;
-    position: relative;
+    @include position($position: relative);
     @include size($width: 100%, $max: 1440px);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
     &__div {
         @include flex;
-        @include absolute($left: 17px);
+        @include position($left: 17px);
         @include size($width: 30px, $height: 30px);
         background: white;
 
@@ -317,7 +318,7 @@ a:any-link {
         }
 
     }
-    .dodo {
+    &__img {
         display: none;
 
         // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
@@ -362,7 +363,7 @@ a:any-link {
         // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
         @media (min-width: 767.99px) {
             @include size($height: 47px);
-            @include font($size: 40px, $weight: 700px);
+            @include font($size: 40px, $weight: 700);
             margin: 30px 0px 0px 0px;
         }
 
@@ -431,7 +432,7 @@ a:any-link {
 
         &-unit {
             @include flex;
-            position: relative;
+            @include position($position: relative);
             @include size($height: 72.38px);
             background: $color-04;
             border-radius: 20px;
@@ -446,24 +447,27 @@ a:any-link {
 
             &-ring {
                 @include flex;
-                @include absolute($left: -12.51px);
+                @include position($left: -12.51px);
                 @include size($width: 24px, $height: 24px);
                 color: white;
                 background: $color-01;
                 border-radius: 14px;
             }
             &-icon {
-                @include absolute($left: 34.5px);
+                @include position($left: 34.5px);
                 color: $color-icons;
-            }
-            &__icons:hover {
-                color: $color-01;
             }
             &-font01 {
                 @extend %font-01;
-                @include absolute($left: 73.49px);
+                @include position($left: 73.49px);
             }
 
+        }
+
+        &-unit:hover {
+            .function__stickers-unit-icon {
+                color: $color-01;
+            }
         }
 
     }
@@ -493,8 +497,8 @@ a:any-link {
         }
 
         &-grp {
-            @include size($width: 100%);
             @include flex($direct: column, $gap: 18px);
+            @include size($width: 100%);
 
             // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
             @media (min-width: 767.99px) {
@@ -503,7 +507,7 @@ a:any-link {
 
             &-unit {
                 @include flex($direct: column, $align: null);
-                position: relative;
+                @include position($position: relative);
                 @include size($width: 100%);
                 box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
                 border-radius: 0px 0px 15px 15px;
@@ -519,7 +523,7 @@ a:any-link {
                 }
                 &-new {
                     @include flex;
-                    @include absolute($top: 13px, $right: 12px);
+                    @include position($top: 13px, $right: 12px);
                     @include size($width: 80px, $height: 29px);
                     color: $color-new;
                     background: $color-02;
@@ -528,13 +532,13 @@ a:any-link {
     
                     // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
                     @media (min-width: 767.99px) {
-                        @include absolute($top: 13px, $right: 17.59px);
+                        @include position($top: 13px, $right: 17.59px);
                     }
     
                 }
                 &-content {
                     @include flex($direct: column, $align: flex-start, $gap: 5px);
-                    position: relative;
+                    @include position($position: relative);
                     @include size($height: 77px);
                     padding-left: 13px;
     
@@ -543,7 +547,7 @@ a:any-link {
                         padding-left: 18.74px;
                     }
                     .heart {
-                        @include absolute($top: 23px, $right: 25px);
+                        @include position($top: 23px, $right: 25px);
                         @include size($width: 22px, $height: 21px);
 
                         &__before {
@@ -574,7 +578,7 @@ a:any-link {
 
 }
 
-/* MENU-IMG ################################################################# */
+/* MENU-IMG #################################################################### */
 
 .menu-img {
     @include size($height: 275px);
@@ -601,7 +605,7 @@ a:any-link {
 
 .menu {
     @include flex($direct: column, $gap: 40px);
-    position: relative;
+    @include position($position: relative);
     padding: 32px 13px 40px 13px;
     margin-top: -55px;
     background: $color-04;
@@ -615,7 +619,7 @@ a:any-link {
     }
 
     &__div {
-        position: relative;
+        @include position($position: relative);
         @include size($width: 100%);
 
         // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
@@ -626,7 +630,6 @@ a:any-link {
         &-title {
             font-family: $font-shrikhand;
             @include font($size: 28px,$weight: 400);
-            // @include size($height: 29px);
             @include size($height: 35px);
             margin: 0px 4px;
             overflow: hidden;
@@ -641,12 +644,12 @@ a:any-link {
 
         }
         .heart {
-            @include absolute($top: 8px, $right: 24px);
+            @include position($top: 8px, $right: 24px);
             @include size($width: 22px, $height: 21px);
 
             // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
             @media (min-width: 767.99px) {
-                @include absolute($top: 10px, $right: 0px);
+                @include position($top: 10px, $right: 0px);
             }
 
             &__before {
@@ -665,6 +668,7 @@ a:any-link {
             }
 
         }
+
     }
     &__stickers {
         @include flex($direct: column, $align: flex-start, $gap: 12px);
@@ -677,15 +681,15 @@ a:any-link {
         }
 
         &-title {
-            @include font($size: 16px,$weight: 300);
             @include size($width: 40px, $height: 27px);
+            @include font($size: 16px,$weight: 300);
             border-bottom: 3px solid $color-02;
             box-sizing: border-box;
         }
         &-unit {
             @include flex($just: space-between, $align: end);
+            @include position($position: relative);
             @include size($width: 100%, $height: 69px);
-            position: relative;
             padding: 12px 15px;
             box-sizing: border-box;
             border-radius: 15.0431px;
@@ -706,9 +710,8 @@ a:any-link {
             }
             &-check {
                 @include flex;
+                @include position($position: relative, $left: 74px);
                 @include size($width: 59px, $height: 69px);
-                position: relative;
-                left: 74px;
                 margin: -12px 0px;
                 @include font($size: 20px);
                 color: white;
@@ -717,13 +720,15 @@ a:any-link {
             & > &-check, .plate-price {
                 transition: all 250ms linear;
             }
-            &:active &-check {
+            &:hover &-check {
                 transform: translateX(-59px);
             }
-            &:active .plate-price {
+            &:hover .plate-price {
                 transform: translateX(-59px);
             }
+
         }
+
     }
     &__btn {
         @extend %btn;
@@ -737,6 +742,7 @@ a:any-link {
             & .menu__btn-txt {
               display: inline-block;
               transform: translateY(-1px);
+              color: white;
             }
 
         }
@@ -748,8 +754,8 @@ a:any-link {
 /* FOOTER ########################################################################################################################################################## */
 
 .main-footer {
-    @include size($width: 100%, $max: 1440px);
     @include flex($direct: column, $align: flex-start, $gap: 16px);
+    @include size($width: 100%, $max: 1440px);
     padding: 22px 25px;
     box-sizing: border-box;
     color: white;
@@ -757,15 +763,15 @@ a:any-link {
 
     // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
     @media (min-width: 767.99px) {
-        @include size($width: 100%, $max: 1440px, $height: 114px);
         @include flex($direct: row-reverse, $just: end, $align: end);
+        @include size($width: 100%, $max: 1440px, $height: 114px);
         padding: 30px 25px;;
     }
 
     &__title {
         font-family: $font-shrikhand;
-        @include font($size: 18px,$weight: 400);
         @include size($width: 137.58px);
+        @include font($size: 18px,$weight: 400);
     }
     &__ul {
         @include flex($direct: column, $align: flex-start, $gap: 7px);
@@ -778,7 +784,7 @@ a:any-link {
         }
 
         &icon {
-            position: relative;
+            @include position($position: relative);
 
             &-cutlery {
                 @include font($size: 13px);
@@ -801,6 +807,7 @@ a:any-link {
 
         }
         &i {
+
             // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
             @media (min-width: 767.99px) {
                 width: 130px;
@@ -817,10 +824,6 @@ a:any-link {
     }
 
 }
-
-/* RESPONSIVE_DESIGN | MEDIA_QUERIES ################################################################################################################################*/
-
-// MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
 
 /* NOTES ########################################################################################################################################################### */
 
