@@ -38,10 +38,6 @@ The result must be identical.
     align-items: $align;
     gap: $gap;
 }
-@mixin font ($size: null, $weight: null) {
-    font-size: $size;
-    font-weight: $weight;
-}
 @mixin absolute ($top: null, $right: null, $bott: null, $left: null) {
     position: absolute;
     top: $top;
@@ -53,6 +49,20 @@ The result must be identical.
     width: $width;
     max-width: $max;
     height: $height;
+}
+@mixin font ($size: null, $weight: null) {
+    font-size: $size;
+    font-weight: $weight;
+}
+@mixin animation ($name: null, $duration: null, $timing: null, $delay: null, $iteration: null, $direction: null, $fill: null, $play: null) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-timing-function: $timing;
+    animation-delay: $delay;
+    animation-iteration-count: $iteration;
+    animation-direction: $direction;
+    animation-fill-mode: $fill;
+    animation-play-state: $play;
 }
 
 /* EXTENDS ##################################################################### */
@@ -78,6 +88,57 @@ The result must be identical.
 
 /* ANIMATIONS ################################################################## */
 
+@keyframes loader {
+    0% {
+        opacity: 100%;
+    }
+    99% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+        visibility: hidden;
+    }
+}
+@keyframes loader__ring {
+    0%,10% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes loader__txt {
+    0% {
+        transform: translateX(-2000px);
+    }
+    10% {
+        transform: translateX(-30px);
+    }
+    90% {
+        transform: translateX(30px);
+    }
+    100% {
+        transform: translateX(2000px);
+    }
+}
+@keyframes loader__line {
+    0% {
+        transform: translateX(2000px);
+    }
+    10% {
+        transform: translateX(30px);
+    }
+    90% {
+        transform: translateX(-30px);
+    }
+    100% {
+        transform: translateX(-2000px);
+    }
+}
 @keyframes anim_stickers {
     0% {
         transform: perspective(500px) rotateX(80deg);
@@ -164,6 +225,66 @@ a:any-link {
     text-decoration: none;
     color: black;
   }
+
+/* LOADER ########################################################################################################################################################## */
+
+.loader {
+    @include flex($direct: column);
+    @include size($width: 100%, $height: 100%);
+    @include animation($name: loader, $duration: 3000ms, $fill: both);
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    background: white;
+
+    &__ring {
+        @include size($width: 150px, $height: 150px);
+        @include animation($name: loader__ring, $duration: 3000ms, $fill: both);
+        border: 3.75px solid #610698;
+        border-radius: 50%;
+        box-shadow: 0px 0px 10px 0px black;
+        background: $color-04;
+        z-index: 0;
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            @include size($width: 200px, $height: 200px);
+            border: 5px solid #610698;
+        }
+
+    }
+    &__txt {
+        @include absolute($top: 440px);
+        @include size($height: 45px);
+        @include font($size: 45px);
+        @include animation($name: loader__txt, $duration: 3000ms, $timing: ease-in, $delay: 100ms, $fill: both);
+        font-family: $font-shrikhand;
+        z-index: 2;
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            @include absolute($top: 415px);
+            @include size($height: 60px);
+            @include font($size: 60px);
+        }
+
+    }
+    &__line {
+        @include absolute($top: 485px);
+        @include size($width: 375px, $height: 7.5px);
+        @include animation($name: loader__line, $duration: 3000ms, $timing: ease-in, $fill: both);
+        background: linear-gradient(to right, white 0%, #d95dca 10%, white 50%, #610698 90%, white 100%);
+        z-index: 1;
+
+        // MEDIUM/NORMAL_DEVICES (TABLETS/DESKTOPS, EQUAL/MORE THAN 767.99px)
+        @media (min-width: 767.99px) {
+            @include absolute($top: 476px);
+            @include size($width: 500px, $height: 10px);
+        }
+
+    }
+
+}
 
 /* HEADER ########################################################################################################################################################## */
 
@@ -714,7 +835,6 @@ a:any-link {
     > X1 element style | Existing class NO_to be create = menu__restaur-title
 - font-size: 18px + font-weight: 400;
     > X1 element style | Existing class NO_to be create = main-footer__title
-
 
 "Roboto" font :
 - font-size: 24px + font-weight: 700;
