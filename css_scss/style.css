@@ -9,7 +9,7 @@ The result must be identical.
 .bd_blue   = Layer_2 (L2/indentation n°1) + Layer_7 (L7/indentation n°6)
 .bd_yellow = Layer_3 (L3/indentation n°2) + Layer_8 (L8/indentation n°7)
 .bd_red    = Layer_4 (L4/indentation n°3) + Layer_9 (L9/indentation n°8)
-.bd_green  = Layer_5 (L5/indentation n°4) + Layer_10 (L10/indentation n°9) */
+.bd_green  = Layer_5 (L5/indentation n°4) + Layer_10 (L10/indentation n°9) de*/
 /* GENERAL ######################################################################################################################################################### */
 /* MIXINS ###################################################################### */
 /* EXTENDS ##################################################################### */
@@ -18,7 +18,7 @@ The result must be identical.
   font-weight: 700px;
 }
 
-.function__stick-font01, .font-01 {
+.function__stickers-unit-font01, .font-01 {
   font-size: 16px;
   font-weight: 500px;
 }
@@ -126,8 +126,7 @@ a:any-link {
   height: 63px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
-
-.main-header__div-arrow {
+.main-header__div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -136,11 +135,9 @@ a:any-link {
   width: 30px;
   height: 30px;
 }
-
-.main-header__arrow {
+.main-header__div-arrow {
   font-size: 19.5px;
 }
-
 .main-header__title {
   font-family: "Shrikhand", cursive;
   font-size: 30px;
@@ -169,18 +166,15 @@ a:any-link {
   text-align: center;
   background: #F7F7F7;
 }
-
 .intro__section-title {
   height: 68px;
   margin: 39.5px 58px 0px 42px;
 }
-
 .intro__txt-intro {
   font-size: 18px;
   font-weight: 300;
   margin: 0px 26px 27px 34px;
 }
-
 .intro__button {
   width: 218px;
   margin: 0px 75px 57px 82px;
@@ -191,11 +185,10 @@ a:any-link {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   gap: 26px;
   padding: 48px 20px 68px 20px;
 }
-
 .function__stickers {
   display: flex;
   flex-direction: column;
@@ -203,8 +196,7 @@ a:any-link {
   gap: 25px;
   width: 100%;
 }
-
-.function__sticker {
+.function__stickers-unit {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -215,8 +207,7 @@ a:any-link {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
   margin-left: 12.51px;
 }
-
-.function__round-num {
+.function__stickers-unit-ring {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -228,18 +219,15 @@ a:any-link {
   background: #9356DC;
   border-radius: 14px;
 }
-
-.function__icons {
+.function__stickers-unit-icon {
   position: absolute;
   left: 34.5px;
   color: #7E7E7E;
 }
-
-.function__icons:hover {
+.function__stickers-unit__icons:hover {
   color: #9356DC;
 }
-
-.function__stick-font01 {
+.function__stickers-unit-font01 {
   position: absolute;
   left: 73.49px;
 }
@@ -249,12 +237,11 @@ a:any-link {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   gap: 24px;
   padding: 54px 18px 66px 17px;
   background: #F7F7F7;
 }
-
 .restaur__cards {
   display: flex;
   flex-direction: column;
@@ -263,8 +250,7 @@ a:any-link {
   gap: 18px;
   width: 100%;
 }
-
-.restaur__card {
+.restaur__cards-unit {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -273,13 +259,11 @@ a:any-link {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   border-radius: 0px 0px 15px 15px;
 }
-
-.restaur__img {
+.restaur__cards-unit-img {
   height: 174px;
   border-radius: 15px 15px 0px 0px;
 }
-
-.restaur__new {
+.restaur__cards-unit-new {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -293,19 +277,17 @@ a:any-link {
   border-radius: 2px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
-
-.restaur__content {
+.restaur__cards-unit-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   gap: 5px;
   position: relative;
   height: 77px;
   padding-left: 13px;
 }
-
-.restaur__hearth {
+.restaur__cards-unit-content-icon {
   position: absolute;
   top: 23px;
   right: 25px;
@@ -316,7 +298,6 @@ a:any-link {
 .menu-img {
   height: 275px;
 }
-
 .menu-img__img {
   width: 100%;
   height: 275px;
@@ -337,37 +318,32 @@ a:any-link {
   border-radius: 40px 40px 0px 0px;
   z-index: 2;
 }
-
-.menu__div-title {
+.menu__div {
   position: relative;
   width: 100%;
   margin-bottom: 2px;
 }
-
-.menu__restaur-title {
+.menu__div-title {
   font-family: "Shrikhand", cursive;
   font-size: 28px;
   font-weight: 400;
   margin: 0px 4px;
   height: 27px;
 }
-
-.menu__hearth {
+.menu__div-hearth {
   position: absolute;
   top: 8px;
   right: 24px;
   font-size: 22px;
 }
-
 .menu__stickers {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   gap: 12px;
   width: 100%;
 }
-
 .menu__stickers-title {
   font-size: 16px;
   font-weight: 300;
@@ -376,11 +352,10 @@ a:any-link {
   border-bottom: 3px solid #99E2D0;
   box-sizing: border-box;
 }
-
-.menu__sticker {
+.menu__stickers-unit {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   width: 100%;
   padding: 13.5px 15px;
   box-sizing: border-box;
@@ -388,15 +363,13 @@ a:any-link {
   box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
   background: white;
 }
-
-.menu__plate {
+.menu__stickers-unit-plate {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   gap: 5px;
 }
-
 .menu__button {
   width: 186px;
 }
@@ -406,56 +379,48 @@ a:any-link {
   width: 100%;
   max-width: 767.98px;
 }
-
 .main-footer__div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   gap: 16px;
   padding: 22px 25px;
   color: white;
   background: #353535;
 }
-
-.main-footer__ul {
+.main-footer__div-ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   gap: 7px;
   padding-left: 0px;
   list-style-type: none;
 }
-
-.main-footer__li-icons {
+.main-footer__div-ulicon {
   position: relative;
 }
-
-.main-footer__cutlery {
+.main-footer__div-ulicon-cutlery {
   font-size: 13px;
   vertical-align: middle;
 }
-
-.main-footer__hand {
+.main-footer__div-ulicon-hand {
   width: 11.92px;
   height: 13px;
   vertical-align: middle;
 }
-
-.main-footer__li-icons-span {
+.main-footer__div-ulicon-span {
   position: absolute;
   left: 22px;
   white-space: nowrap;
 }
-
-.main-footer__mail:-moz-any-link {
+.main-footer__div-ul-mail:-moz-any-link {
   display: contents;
   text-decoration: none;
   color: white;
 }
-
-.main-footer__mail:any-link {
+.main-footer__div-ul-mail:any-link {
   display: contents;
   text-decoration: none;
   color: white;
@@ -513,4 +478,4 @@ you must also import the font style corresponding to the font-weight at 700, oth
 Generally, the default browser font size is 16px, with a font-weight of 400.
 -----------------------------------------------------------
 By default, an h* title is automatically assigned a size in pixels, depending on its title level (h1,h2,h3 etc) and
-an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style_v2.2.css.map */
+an automatic font-weight of 700 (Bold), whatever its title level. *//*# sourceMappingURL=style_v2.3.css.map */
